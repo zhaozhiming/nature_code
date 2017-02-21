@@ -1,3 +1,10 @@
+function moveToMouse(x, y) {
+  const pros = [0.25, 0.5, 0.75];
+  pros[0] = x < mouseX ? 0.4 : 0.1;
+  pros[2] = y < mouseY ? 0.9 : 0.6;
+  return pros;
+}
+
 class Walker {
   constructor() {
     this.x = width / 2;
@@ -10,12 +17,13 @@ class Walker {
   }
 
   step() {
+    const pros = moveToMouse(this.x, this.y);
     const r = random(1);
-    if (r < 0.3) {
+    if (r < pros[0]) {
       this.x = this.x + 1;
-    } else if (r < 0.5) {
+    } else if (r < pros[1]) {
       this.x = this.x - 1;
-    } else if (r < 0.8) {
+    } else if (r < pros[2]) {
       this.y = this.y + 1;
     } else {
       this.y = this.y - 1;
