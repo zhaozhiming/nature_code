@@ -2,7 +2,8 @@ class Mover {
   constructor() {
     this.location = createVector(random(width / 2), random(height / 2));
     this.velocity= createVector(random(-2, 2), random(-2, 2));
-    this.acceleration = createVector(-0.001, 0.001);
+    this.acceleration = p5.Vector.random2D();
+    this.acceleration.mult(map(noise(0.01), 0, 1, -0.01, 0.01));
     this.topSpeed = 10;
   }
 
@@ -44,6 +45,7 @@ function draw() {
   mover.update();
   mover.checkEdges();
   mover.display();
+  console.log({ mag: mover.velocity.mag() });
 }
 
 function keyPressed() {
