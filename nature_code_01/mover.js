@@ -5,9 +5,15 @@ class Mover {
     this.acceleration = p5.Vector.random2D();
     this.acceleration.mult(map(noise(0.01), 0, 1, -0.01, 0.01));
     this.topSpeed = 10;
+    this.distance = createVector(1, 1);
   }
 
   update() {
+    const mouse = createVector(mouseX, mouseY);
+    const dir = p5.Vector.sub(mouse, this.location);
+    dir.setMag(0.5);
+    this.acceleration = dir;
+
     this.velocity.add(this.acceleration);
     this.velocity.limit(this.topSpeed);
     this.location.add(this.velocity);
@@ -35,7 +41,7 @@ class Mover {
 
 let mover;
 function setup() {
-  createCanvas(200, 200);
+  createCanvas(500, 500);
   smooth();
   mover = new Mover();
 }
