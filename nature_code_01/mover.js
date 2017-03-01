@@ -1,9 +1,3 @@
-p5.Vector.prototype.limit = function limit(max) {
-  if (this.mag() > max) {
-    this.setMag(max);
-  }
-};
-
 class Mover {
   constructor() {
     this.location = createVector(random(width / 2), random(height / 2));
@@ -39,7 +33,6 @@ class Mover {
 }
 
 let mover;
-
 function setup() {
   createCanvas(200, 200);
   smooth();
@@ -53,4 +46,10 @@ function draw() {
   mover.display();
 }
 
-
+function keyPressed() {
+   if (keyCode === UP_ARROW) {
+     mover.velocity.add(createVector(1, 1));
+   } else if (keyCode === DOWN_ARROW) {
+     mover.velocity.sub(createVector(1, 1));
+   }
+}
