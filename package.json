@@ -6,7 +6,7 @@
   "author": "zhaozhiming <zhaozhiming003@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "browser-sync start --server --port 4000 --files nature_code_03/index.html --files nature_code_03/*.js"
+    "start": "browser-sync start --server --port 4000 --directory --files **/index.html --files nature*/*.js"
   },
   "dependencies": {
     "browser-sync": "^2.18.8"
