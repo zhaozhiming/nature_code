@@ -71,12 +71,13 @@ let img;
 let lifespan;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(400, 400, P2D);
   ps = new ParticlesSystem(createVector(width / 2, height / 2));
   img = loadImage("./texture.png");
 }
 
 function draw() {
+  blendMode(EXCLUSION);
   background(0);
   const dx = map(mouseX, 0, width, -0.2, 0.2);
   const wind = createVector(dx, 0);
