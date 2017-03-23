@@ -3,10 +3,9 @@ const VerletParticle2D = toxi.physics2d.VerletParticle2D;
 const VerletSpring2D = toxi.physics2d.VerletSpring2D;
 const GravityBehavior = toxi.physics2d.behaviors.GravityBehavior;
 const Vec2D = toxi.geom.Vec2D;
-const Rect = toxi.geom.Rect;
+
 
 let physics;
-
 class Particle extends VerletParticle2D {
   constructor(loc) {
     super(loc);
