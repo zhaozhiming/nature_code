@@ -70,5 +70,8 @@ function setup() {
 
 function draw() {
   gol.display();
+}
+
+function mousePressed() {
   gol.generate();
 }
